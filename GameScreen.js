@@ -6,10 +6,9 @@ import Button from '@mui/material/Button';
 import "./GameScreen.css"
 import Professor from "./Professor"
 import RestartAltIcon from '@mui/icons-material/RestartAlt';
-import Header from "./Header.js"
+import Header from "./Header"
 import IconButton from '@mui/material/IconButton';
 import { Rating } from "@mui/material";
-import { Link } from 'react-router-dom';
 
 export default function GameScreen() {
   let [professorBase, setProfessorBase] = useState({});
@@ -44,15 +43,12 @@ export default function GameScreen() {
     randomize();
    console.log(left.node.avgRating)
    console.log(right.node.avgRating)
-   if (right.node.avgRating >= left.node.avgRating){
+   if (right.node.avgRating > left.node.avgRating){
     score = score + 1;
     setScore(score);
    }
    else {
-    if (highScore < score) {
-      setHighScore(score);
-    }
-    
+    score = score -1;
    }
 
   }
@@ -61,15 +57,12 @@ export default function GameScreen() {
     randomize();
    console.log(left.node.avgRating)
    console.log(right.node.avgRating)
-   if (right.node.avgRating <= left.node.avgRating){
+   if (right.node.avgRating < left.node.avgRating){
     score = score + 1;
     setScore(score);
    }
    else {
-    if (highScore < score) {
-      setHighScore(score);
-    }
-
+    score = score -1;
    }
 
   }
@@ -115,9 +108,7 @@ export default function GameScreen() {
             color="primary"
             variant="contained"
           >
-            <Link to="/gameOver">
             <RestartAltIcon sx={{fontSize: "3rem"}}/>
-            </Link>
           </IconButton>
         </div>
         <div className="TextBox">

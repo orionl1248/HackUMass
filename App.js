@@ -3,7 +3,6 @@ import './App.css';
 import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
 import GameScreen from "./GameScreen.js"
 import Home from "./Home.js"
-import Over from "./gameOver.js"
 import {Link} from 'react-router-dom'
 
 function App() {
@@ -19,7 +18,6 @@ function App() {
           <Routes>
               <Route exact path="/" element={<Home/>} />
               <Route exact path="/GameScreen" element={<GameScreen/>} />
-              <Route exact path="/gameOver" element={<Over/>} />
           </Routes>
         </div>
     </div>
