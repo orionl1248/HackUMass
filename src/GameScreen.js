@@ -72,6 +72,8 @@ export default function GameScreen({highScore, setHighScore}) {
     if (highScore < score) {
       setHighScore(score);
     }
+    navigate("/GameOver");
+
 
    }
 
