@@ -9,15 +9,16 @@ import RestartAltIcon from '@mui/icons-material/RestartAlt';
 import Header from "./Header.js"
 import IconButton from '@mui/material/IconButton';
 import { Rating } from "@mui/material";
-import { Link } from 'react-router-dom';
+import { Link, useNavigate  } from 'react-router-dom';
 
-export default function GameScreen() {
+export default function GameScreen({highScore, setHighScore}) {
   let [professorBase, setProfessorBase] = useState({});
   let [isSubmitted, setSubmitted] = useState(false);
   let [score, setScore] = useState(0);
-  let [highScore, setHighScore] = useState(0);
   let [left, setLeft] = useState({});
   let [right, setRight] = useState({});
+
+  const navigate = useNavigate();
 
   useEffect(() => {
     if (isSubmitted) {
@@ -42,17 +43,19 @@ export default function GameScreen() {
   function submitAndRandomizeHigher(){
     isSubmitted = true;
     randomize();
-   console.log(left.node.avgRating)
-   console.log(right.node.avgRating)
+  //  console.log(left.node.avgRating)
+  //  console.log(right.node.avgRating)
    if (right.node.avgRating >= left.node.avgRating){
+    console.log("Right")
     score = score + 1;
     setScore(score);
    }
    else {
+    console.log("Wrong")
     if (highScore < score) {
       setHighScore(score);
     }
-    
+    navigate("/GameOver");
    }
 
   }

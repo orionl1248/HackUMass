@@ -5,8 +5,12 @@ import GameScreen from "./GameScreen.js"
 import Home from "./Home.js"
 import Over from "./gameOver.js"
 import {Link} from 'react-router-dom'
+import { useState } from 'react'
 
 function App() {
+
+  const [highScore, setHighScore] = useState(0);
+
   return (
     <div className="App">
         {/*
@@ -18,7 +22,7 @@ function App() {
         <div className="ScreenPanel">
           <Routes>
               <Route exact path="/" element={<Home/>} />
-              <Route exact path="/GameScreen" element={<GameScreen/>} />
+              <Route exact path="/GameScreen" element={<GameScreen setHighScore={setHighScore} highScore={highScore}/>} />
               <Route exact path="/gameOver" element={<Over/>} />
           </Routes>
         </div>
