@@ -120,9 +120,7 @@ export default function GameScreen({highScore, setHighScore}) {
             color="primary"
             variant="contained"
           >
-            <Link to="/gameOver">
             <RestartAltIcon sx={{fontSize: "3rem"}}/>
-            </Link>
           </IconButton>
         </div>
         <div className="TextBox">
